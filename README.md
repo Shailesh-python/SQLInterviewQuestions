@@ -179,7 +179,9 @@ GROUP BY P.Callerid, CAST(p.Datecalled as DATE)
 ```	
 ![image](https://user-images.githubusercontent.com/81180156/192113875-7f279c73-0331-4571-89a2-2542e0c9f52d.png)
 
-## [Question #6](#case-study-questions)	 
+
+## [Question #6](#case-study-questions)
+
 > Write the sql query to report the students (student_id, student_name) being "quite" in all exams.
 
 A "quite" student is one who took atleast on exam and did not score the high score nor the low score in any of the exam.
@@ -202,18 +204,20 @@ where exams.score > max_min_table.min_score
 ```
 ![image](https://user-images.githubusercontent.com/81180156/192113986-475900fa-9d73-48be-9f7b-da7569039f2d.png)
 
-## [Question #6](#case-study-questions)	 
+## [Question #7](#case-study-questions)	 
 > WRITE A QUERY TO FIND THE GOLD MEDAL PER SWIMMER WHO WON ONLY GOLD MEDALS
-```sql
+
 METHOD - 1 
+```sql
 SELECT 
 	GOLD,
 	COUNT(GOLD) AS TOTAL_GOLD
 FROM EVENTS
 WHERE GOLD NOT IN (SELECT BRONZE FROM EVENTS UNION SELECT SILVER FROM events)
 GROUP BY GOLD
-
----- METHOD - 1 
+```
+METHOD - 2
+```sql
 SELECT GOLD,COUNT(GOLD) AS Total_Gold
 FROM events
 WHERE GOLD IN 
@@ -226,27 +230,14 @@ SELECT BRONZE FROM events
 )
 GROUP BY GOLD
 ```
+![image](https://user-images.githubusercontent.com/81180156/192114177-249f71c4-2454-4b44-a3eb-3fec366f381f.png)
 
------------QUESTION - 8 ----------------------------------
-https://youtu.be/Xh0EevUOWF0
-script:
-create table brands 
-(
-category varchar(20),
-brand_name varchar(20)
-);
-insert into brands values
-('chocolates','5-star')
-,(null,'dairy milk')
-,(null,'perk')
-,(null,'eclair')
-,('Biscuits','britannia')
-,(null,'good day')
-,(null,'boost');
+## [Question #8](#case-study-questions)	 
 
--- WRITE A SQL TO POPULATE CATEGORY VALUES TO LAST NOT NULL VALUE
--- LIKE DOWN FILL IN EXCEL AND POWER QUERY
+> WRITE A SQL TO POPULATE CATEGORY VALUES TO LAST NOT NULL VALUE
 
+LIKE DOWN FILL IN EXCEL AND POWER QUERY
+```sql
 WITH CTE AS 
 (
 SELECT 
@@ -267,16 +258,12 @@ FROM BRANDS
 		INNER JOIN CTE_2 
 			ON CTE.RN >= CTE_2.RN 
 				AND CTE.RN <= CTE_2.NEXT_RN-1
-		
+```		
+![image](https://user-images.githubusercontent.com/81180156/192114282-e694e0f4-b95c-4af2-ba08-5594a251c874.png)
 
----------------------------- QUESTION - 9 ----------------------------------------
-
-https://youtu.be/7LufPVm01NQ
-
-DATASET IN DESCRIPTION
-
---Find sachin's milestone innings/matches
-
+## [Question #9](#case-study-questions)	 
+> Find sachin's milestone innings/matches.
+```sql
 WITH CTE AS 
 (
 SELECT 
@@ -301,50 +288,26 @@ FROM SACHIN_SCORES
 
 	FROM CTE_MILESTONES
 	GROUP BY CTE_MILESTONES.MILESTONES
-	
---------------------QUESTION 10 ----------------------------------------------------------------------------
-https://youtu.be/pk8BKFysjP8
+```
+![image](https://user-images.githubusercontent.com/81180156/192114648-95352e93-7033-4720-8e1b-9196e795a143.png)
 
-create table call_details  (
-call_type varchar(10),
-call_number varchar(12),
-call_duration int
-);
+## [Question #10](#case-study-questions)	
 
-insert into call_details
-values ('OUT','181868',13),('OUT','2159010',8)
-,('OUT','2159010',178),('SMS','4153810',1),('OUT','2159010',152),('OUT','9140152',18),('SMS','4162672',1)
-,('SMS','9168204',1),('OUT','9168204',576),('INC','2159010',5),('INC','2159010',4),('SMS','2159010',1)
-,('SMS','4535614',1),('OUT','181868',20),('INC','181868',54),('INC','218748',20),('INC','2159010',9)
-,('INC','197432',66),('SMS','2159010',1),('SMS','4535614',1);
-
-/*Write a sql to determine phone numbers that satisfies the below condition:
+> Write a sql to determine phone numbers that satisfies the below condition:
 1-the numbers have both incoming and outgoing calls
 2-the sum of duration of outgoing calls should be greater than sum of duration of incoming calls
-*/
 
-with cte_in as 
+```sql
+;with cte_in as 
 (
 	select * from call_details where call_type = 'in'
 ), cte_out as 
 	(select * from call_details where call_type = 'OUT')
-
-	select 
-
-------- Question - 11 ------------------------------------------
-https://youtu.be/e4IILSHtKl4
-
-script:
-create table movie(
-seat varchar(50),occupancy int
-);
-insert into movie values('a1',1),('a2',1),('a3',0),('a4',0),('a5',0),('a6',0),('a7',1),('a8',1),('a9',0),('a10',0),
-('b1',0),('b2',0),('b3',0),('b4',1),('b5',1),('b6',1),('b7',1),('b8',0),('b9',0),('b10',0),
-('c1',0),('c2',1),('c3',0),('c4',1),('c5',1),('c6',0),('c7',1),('c8',0),('c9',0),('c10',1);
-
--- there are 3 rows in a movie hall each with 10 seats in each row
--- write a sql query to find the four consecutive empty space.
-
+```
+## [Question #11](#case-study-questions)
+> There are 3 rows in a movie hall each with 10 seats in each row
+> write a sql query to find the four consecutive empty space.
+```sql
 ;with cte as 
 (
 select 
@@ -369,3 +332,5 @@ from movie
 	inner join cte3
 	on cte.seat_type = cte3.seat_type
 		and cte.seat_id between cte3.seat_id and cte3.seat_id + 3
+```
+![image](https://user-images.githubusercontent.com/81180156/192114800-e5fb9dd5-cbe6-41d4-bbcf-3f6bd3635018.png)
