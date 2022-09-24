@@ -1,5 +1,7 @@
 # SQL Interview Questions
 
+### All questions are taken from [Ankit Bansal's Youtube Channel.](https://www.youtube.com/user/1988ankitbansal) Like & Subcribe For More Questions
+
 <img src='https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white)'/>
 
 ## [Question #1](#case-study-questions)
