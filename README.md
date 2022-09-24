@@ -78,33 +78,9 @@ SELECT emp_id , MAX(time) out_time FROM dbo.hospital WHERE [action] = 'out' GROU
 ```
 ![image](https://user-images.githubusercontent.com/81180156/192112750-ba627b92-8835-4f02-9878-de8af4ee5f8a.png)
 
------------------------Question 3 ------------------------------------------------------------------------------------------------------------------
-https://youtu.be/KLqRHJ-Eg2s
-script:
-create table tickets
-(
-ticket_id varchar(10),
-create_date date,
-resolved_date date
-);
-delete from tickets;
-insert into tickets values
-(1,'2022-08-01','2022-08-03')
-,(2,'2022-08-01','2022-08-12')
-,(3,'2022-08-01','2022-08-16');
-create table holidays
-(
-holiday_date date
-,reason varchar(100)
-);
-delete from holidays;
-insert into holidays values
-('2022-08-11','Rakhi'),('2022-08-15','Independence day');
-
-/*
-Write a sql query to find the business days between create date and resolved date excluding weekend and holidays.
-*/
-
+## [Question #3](#case-study-questions)
+> Write a sql query to find the business days between create date and resolved date excluding weekend and holidays.
+```sql
 SELECT
     *,
     DATEDIFF(DAY, CREATE_DATE, RESOLVED_DATE),
@@ -138,19 +114,7 @@ FROM
 	LEFT JOIN DBO.holidays H ON H.holiday_date BETWEEN T.create_date AND T.resolved_date
 	GROUP BY T.ticket_id, T.create_date, T.resolved_date
 ) A
-
-----------Question - 4 ----------------------------------------------------------------------------------
-https://youtu.be/KLqRHJ-Eg2s
-script:
-create table candidates (
-emp_id int,
-experience varchar(20),
-salary int
-);
-delete from candidates;
-insert into candidates values
-(1,'Junior',10000),(2,'Junior',15000),(3,'Junior',40000),(4,'Senior',16000),(5,'Senior',20000),(6,'Senior',50000);
-
+```
 
 /* A COMPANY WANTS TO HIRE NEW EMPLOYEES. THE BUDGET OF THE COMPANY FOR SALARIES IS 70000.
 THE COMPANY'S CRITERIA TO HIRE ARE :
