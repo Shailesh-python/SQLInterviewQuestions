@@ -351,6 +351,6 @@ from movie
 	on cte.seat_type = cte3.seat_type
 		and cte.seat_id between cte3.seat_id and cte3.seat_id + 3
 ```
-![image](https://user-images.githubusercontent.com/81180156/192114800-e5fb9dd5-cbe6-41d4-bbcf-3f6bd3635018.png)
+![image](https://user-images.githubusercontent.com/81180156/192115891-fa425565-f079-4f20-a068-a73a5254afca.png)
 
 Check solution link [Ankit Bansal Solution](https://youtu.be/e4IILSHtKl4)
