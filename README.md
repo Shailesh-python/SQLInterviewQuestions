@@ -1,4 +1,6 @@
-### SQLInterviewQuestions
+# SQL Interview Questions
+
+<img src='https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white)'/>
 
 ## [Question #1](#case-study-questions)
 > Find companies who have atleast 2 users who speaks English and German both the language.
@@ -21,6 +23,7 @@ GROUP BY A.company_id
 HAVING COUNT(1) >= 2
 ```
 ![image](https://user-images.githubusercontent.com/81180156/192112581-580aaf55-9974-4214-a8f1-c45c24fec39d.png)
+
 
 ## [Question #2](#case-study-questions)
 > Write a sql to find the total number of people present inside the hospital.
@@ -78,6 +81,8 @@ SELECT emp_id , MAX(time) out_time FROM dbo.hospital WHERE [action] = 'out' GROU
 ```
 ![image](https://user-images.githubusercontent.com/81180156/192112750-ba627b92-8835-4f02-9878-de8af4ee5f8a.png)
 
+Check solution link [Ankit Bansal Solution](https://youtu.be/oGYinDMDfnA)
+
 ## [Question #3](#case-study-questions)
 > Write a sql query to find the business days between create date and resolved date excluding weekend and holidays.
 ```sql
@@ -115,6 +120,9 @@ FROM
 	GROUP BY T.ticket_id, T.create_date, T.resolved_date
 ) A
 ```
+![image](https://user-images.githubusercontent.com/81180156/192115140-8c8e836c-6f40-4505-8cab-a48d250b15a5.png)
+
+Check solution link [Ankit Bansal Solution](https://youtu.be/KLqRHJ-Eg2s)
 
 ## [Question #4](#case-study-questions)
 A COMPANY WANTS TO HIRE NEW EMPLOYEES. THE BUDGET OF THE COMPANY FOR SALARIES IS 70000.
