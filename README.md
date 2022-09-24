@@ -150,6 +150,9 @@ FROM DBO.CANDIDATES
 		FROM SENIOR 
 		WHERE EXPERIENCE = 'SENIOR' AND RUNNING_SALARY <= 70000)
 ```
+![image](https://user-images.githubusercontent.com/81180156/192113828-9b7f935b-1f50-47e2-93a0-0a3f82c53f67.png)
+
+
 ## [Question #5](#case-study-questions)	   
 > WRITE A SQL TO FIND OUT CALLERS WHOSE FIRST AND LAST CALL WAS TO THE SAME PERSON ON THE GIVEN DAY.
 ```sql
@@ -174,34 +177,15 @@ GROUP BY P.Callerid, CAST(p.Datecalled as DATE)
 		ON CTE.Callerid = P2.Callerid AND CTE.Last_Call = P2.Datecalled
 	WHERE P1.Recipientid = P2.Recipientid
 ```	
-	
--------Question-6--------------------------------------------------------
-https://youtu.be/6CH7IU4yB5I
-scripts:
-create table students
-(
-student_id int,
-student_name varchar(20)
-);
-insert into students values
-(1,'Daniel'),(2,'Jade'),(3,'Stella'),(4,'Jonathan'),(5,'Will');
+![image](https://user-images.githubusercontent.com/81180156/192113875-7f279c73-0331-4571-89a2-2542e0c9f52d.png)
 
-create table exams
-(
-exam_id int,
-student_id int,
-score int);
+## [Question #6](#case-study-questions)	 
+> Write the sql query to report the students (student_id, student_name) being "quite" in all exams.
 
-insert into exams values
-(10,1,70),(10,2,80),(10,3,90),(20,1,80),(30,1,70),(30,3,80),(30,4,90),(40,1,60)
-,(40,2,70),(40,4,80);
-
--- Write the sql query to report the students (student_id, student_name) being "quite" in all exams.
--- A "quite" student is one who took atleast on exam and did not score the high score nor the low score in any of the exam.
--- Do not return the student who have never taken any exam.
--- Return the result table ordered by student_id
-
-
+A "quite" student is one who took atleast on exam and did not score the high score nor the low score in any of the exam.
+Do not return the student who have never taken any exam.
+Return the result table ordered by student_id
+```sql
 ;with max_min_table as 
 (select exam_id, min(score) min_score, max(score) max_score from exams group by exam_id)
 ,number_of_exams as 
@@ -214,38 +198,14 @@ left join max_min_table on exams.exam_id = max_min_table.exam_id
 
 left join number_of_exams on exams.student_id = number_of_exams.student_id
 where exams.score > max_min_table.min_score 
-	or exams.score < max_min_table.max_score
+	or exams.score < max_min_table.max_score	
+```
+![image](https://user-images.githubusercontent.com/81180156/192113986-475900fa-9d73-48be-9f7b-da7569039f2d.png)
 
--------- Question 7 --------------------------------------------------------------------
-https://youtu.be/dOLBRfwzYcU
-
-script:
-CREATE TABLE events (
-ID int,
-event varchar(255),
-YEAR INt,
-GOLD varchar(255),
-SILVER varchar(255),
-BRONZE varchar(255)
-);
-
-delete from events;
-
-INSERT INTO events VALUES (1,'100m',2016, 'Amthhew Mcgarray','donald','barbara');
-INSERT INTO events VALUES (2,'200m',2016, 'Nichole','Alvaro Eaton','janet Smith');
-INSERT INTO events VALUES (3,'500m',2016, 'Charles','Nichole','Susana');
-INSERT INTO events VALUES (4,'100m',2016, 'Ronald','maria','paula');
-INSERT INTO events VALUES (5,'200m',2016, 'Alfred','carol','Steven');
-INSERT INTO events VALUES (6,'500m',2016, 'Nichole','Alfred','Brandon');
-INSERT INTO events VALUES (7,'100m',2016, 'Charles','Dennis','Susana');
-INSERT INTO events VALUES (8,'200m',2016, 'Thomas','Dawn','catherine');
-INSERT INTO events VALUES (9,'500m',2016, 'Thomas','Dennis','paula');
-INSERT INTO events VALUES (10,'100m',2016, 'Charles','Dennis','Susana');
-INSERT INTO events VALUES (11,'200m',2016, 'jessica','Donald','Stefeney');
-INSERT INTO events VALUES (12,'500m',2016,'Thomas','Steven','Catherine');
-
--- WRITE A QUERY TO FIND THE GOLD MEDAL PER SWIMMER WHO WON ONLY GOLD MEDALS
--- METHOD - 1 
+## [Question #6](#case-study-questions)	 
+> WRITE A QUERY TO FIND THE GOLD MEDAL PER SWIMMER WHO WON ONLY GOLD MEDALS
+```sql
+METHOD - 1 
 SELECT 
 	GOLD,
 	COUNT(GOLD) AS TOTAL_GOLD
@@ -265,6 +225,7 @@ EXCEPT
 SELECT BRONZE FROM events
 )
 GROUP BY GOLD
+```
 
 -----------QUESTION - 8 ----------------------------------
 https://youtu.be/Xh0EevUOWF0
