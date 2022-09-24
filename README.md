@@ -91,8 +91,7 @@ SELECT
     DATEDIFF(DAY, CREATE_DATE, RESOLVED_DATE),
     DATENAME(WEEK,CREATE_DATE),
     DATENAME(WEEK, RESOLVED_DATE),
-    DATEDIFF(WEEK, CREATE_DATE, RESOLVED_DATE)
-    
+    DATEDIFF(WEEK, CREATE_DATE, RESOLVED_DATE) 
 FROM DBO.tickets
 
 -- From above we can conclude that 
@@ -106,8 +105,7 @@ SELECT
 	resolved_date,
 	DATEDIFF(DAY, create_date, resolved_date) - 
 	DATEDIFF(WEEK, create_date, resolved_date) * 2 -
-	numberOF_holidays AS Working_Days_To_Resolve
-	
+	numberOF_holidays AS Working_Days_To_Resolve	
 FROM 
 (
 	SELECT 
@@ -127,9 +125,9 @@ Check solution link [Ankit Bansal Solution](https://youtu.be/KLqRHJ-Eg2s)
 ## [Question #4](#case-study-questions)
 A COMPANY WANTS TO HIRE NEW EMPLOYEES. THE BUDGET OF THE COMPANY FOR SALARIES IS 70000.
 THE COMPANY'S CRITERIA TO HIRE ARE :
-> KEEP HIRING THE SENIOR WITH SMALLEST SALARY UNTIL YOU CANNOT HIRE ANYMORE SENIORS.
-> USE REMAINING BUDGET TO HIRE THE JUNIOR WITH SMALLEST SALARY.
-> KEEP HIRING THE JUNIOUR WITH SMALLEST SALARY UNTIL YOU CANNOT HIRE ANYMORE JUNIORS.
+- KEEP HIRING THE SENIOR WITH SMALLEST SALARY UNTIL YOU CANNOT HIRE ANYMORE SENIORS.
+- USE REMAINING BUDGET TO HIRE THE JUNIOR WITH SMALLEST SALARY.
+- KEEP HIRING THE JUNIOUR WITH SMALLEST SALARY UNTIL YOU CANNOT HIRE ANYMORE JUNIORS.
 
 > WRITE SQL QUERY TO FIND THE SENIORS AND JUNIORS HIRED UNDER THE MENTIONED CRITERIA.
 
@@ -159,6 +157,7 @@ FROM DBO.CANDIDATES
 		WHERE EXPERIENCE = 'SENIOR' AND RUNNING_SALARY <= 70000)
 ```
 ![image](https://user-images.githubusercontent.com/81180156/192113828-9b7f935b-1f50-47e2-93a0-0a3f82c53f67.png)
+
 Check solution link [Ankit Bansal Solution](https://youtu.be/KLqRHJ-Eg2s)
 
 ## [Question #5](#case-study-questions)	   
@@ -186,6 +185,7 @@ GROUP BY P.Callerid, CAST(p.Datecalled as DATE)
 	WHERE P1.Recipientid = P2.Recipientid
 ```	
 ![image](https://user-images.githubusercontent.com/81180156/192113875-7f279c73-0331-4571-89a2-2542e0c9f52d.png)
+
 Check solution link [Ankit Bansal Solution](https://youtu.be/3qEfsSC27_4)
 
 ## [Question #6](#case-study-questions)
@@ -211,6 +211,7 @@ where exams.score > max_min_table.min_score
 	or exams.score < max_min_table.max_score	
 ```
 ![image](https://user-images.githubusercontent.com/81180156/192113986-475900fa-9d73-48be-9f7b-da7569039f2d.png)
+
 Check solution link [Ankit Bansal Solution](https://youtu.be/6CH7IU4yB5I)
 
 ## [Question #7](#case-study-questions)	 
@@ -240,6 +241,7 @@ SELECT BRONZE FROM events
 GROUP BY GOLD
 ```
 ![image](https://user-images.githubusercontent.com/81180156/192114177-249f71c4-2454-4b44-a3eb-3fec366f381f.png)
+
 Check solution link [Ankit Bansal Solution](https://youtu.be/dOLBRfwzYcU)
 
 ## [Question #8](#case-study-questions)	 
@@ -270,6 +272,7 @@ FROM BRANDS
 				AND CTE.RN <= CTE_2.NEXT_RN-1
 ```		
 ![image](https://user-images.githubusercontent.com/81180156/192114282-e694e0f4-b95c-4af2-ba08-5594a251c874.png)
+
 Check solution link [Ankit Bansal Solution](https://youtu.be/Xh0EevUOWF0)
 
 ## [Question #9](#case-study-questions)	 
@@ -301,6 +304,7 @@ FROM SACHIN_SCORES
 	GROUP BY CTE_MILESTONES.MILESTONES
 ```
 ![image](https://user-images.githubusercontent.com/81180156/192114648-95352e93-7033-4720-8e1b-9196e795a143.png)
+
 Check solution link [Ankit Bansal Solution](https://youtu.be/7LufPVm01NQ)
 
 ## [Question #10](#case-study-questions)	
@@ -348,4 +352,5 @@ from movie
 		and cte.seat_id between cte3.seat_id and cte3.seat_id + 3
 ```
 ![image](https://user-images.githubusercontent.com/81180156/192114800-e5fb9dd5-cbe6-41d4-bbcf-3f6bd3635018.png)
+
 Check solution link [Ankit Bansal Solution](https://youtu.be/e4IILSHtKl4)
