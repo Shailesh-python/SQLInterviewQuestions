@@ -159,7 +159,7 @@ FROM DBO.CANDIDATES
 		WHERE EXPERIENCE = 'SENIOR' AND RUNNING_SALARY <= 70000)
 ```
 ![image](https://user-images.githubusercontent.com/81180156/192113828-9b7f935b-1f50-47e2-93a0-0a3f82c53f67.png)
-
+Check solution link [Ankit Bansal Solution](https://youtu.be/KLqRHJ-Eg2s)
 
 ## [Question #5](#case-study-questions)	   
 > WRITE A SQL TO FIND OUT CALLERS WHOSE FIRST AND LAST CALL WAS TO THE SAME PERSON ON THE GIVEN DAY.
@@ -186,7 +186,7 @@ GROUP BY P.Callerid, CAST(p.Datecalled as DATE)
 	WHERE P1.Recipientid = P2.Recipientid
 ```	
 ![image](https://user-images.githubusercontent.com/81180156/192113875-7f279c73-0331-4571-89a2-2542e0c9f52d.png)
-
+Check solution link [Ankit Bansal Solution](https://youtu.be/3qEfsSC27_4)
 
 ## [Question #6](#case-study-questions)
 
@@ -211,6 +211,7 @@ where exams.score > max_min_table.min_score
 	or exams.score < max_min_table.max_score	
 ```
 ![image](https://user-images.githubusercontent.com/81180156/192113986-475900fa-9d73-48be-9f7b-da7569039f2d.png)
+Check solution link [Ankit Bansal Solution](https://youtu.be/6CH7IU4yB5I)
 
 ## [Question #7](#case-study-questions)	 
 > WRITE A QUERY TO FIND THE GOLD MEDAL PER SWIMMER WHO WON ONLY GOLD MEDALS
@@ -239,6 +240,7 @@ SELECT BRONZE FROM events
 GROUP BY GOLD
 ```
 ![image](https://user-images.githubusercontent.com/81180156/192114177-249f71c4-2454-4b44-a3eb-3fec366f381f.png)
+Check solution link [Ankit Bansal Solution](https://youtu.be/dOLBRfwzYcU)
 
 ## [Question #8](#case-study-questions)	 
 
@@ -268,6 +270,7 @@ FROM BRANDS
 				AND CTE.RN <= CTE_2.NEXT_RN-1
 ```		
 ![image](https://user-images.githubusercontent.com/81180156/192114282-e694e0f4-b95c-4af2-ba08-5594a251c874.png)
+Check solution link [Ankit Bansal Solution](https://youtu.be/Xh0EevUOWF0)
 
 ## [Question #9](#case-study-questions)	 
 > Find sachin's milestone innings/matches.
@@ -298,6 +301,7 @@ FROM SACHIN_SCORES
 	GROUP BY CTE_MILESTONES.MILESTONES
 ```
 ![image](https://user-images.githubusercontent.com/81180156/192114648-95352e93-7033-4720-8e1b-9196e795a143.png)
+Check solution link [Ankit Bansal Solution](https://youtu.be/7LufPVm01NQ)
 
 ## [Question #10](#case-study-questions)	
 
@@ -312,6 +316,8 @@ FROM SACHIN_SCORES
 ), cte_out as 
 	(select * from call_details where call_type = 'OUT')
 ```
+Check solution link [Ankit Bansal Solution](https://youtu.be/pk8BKFysjP8)
+
 ## [Question #11](#case-study-questions)
 > There are 3 rows in a movie hall each with 10 seats in each row
 > write a sql query to find the four consecutive empty space.
@@ -342,3 +348,4 @@ from movie
 		and cte.seat_id between cte3.seat_id and cte3.seat_id + 3
 ```
 ![image](https://user-images.githubusercontent.com/81180156/192114800-e5fb9dd5-cbe6-41d4-bbcf-3f6bd3635018.png)
+Check solution link [Ankit Bansal Solution](https://youtu.be/e4IILSHtKl4)
